@@ -1,0 +1,21 @@
+---
+title: My Personl ZOOOOO
+layout: layouts/default.ejs
+pagination:
+  data: ghost-content  
+  size: 7
+permalink: "animal/page-<%= pagination.pageNumber + 1 %>/index.html"
+---
+
+<hr/>
+<div class="container d-flex gap-4 flex-wrap">
+<% pagination.items.forEach((item) => { %>
+    <%- include('_includes/partials/animals_card.ejs', { item1: item }) %>
+  
+<% }) %>
+</div>
+
+<hr/>
+
+<%- include('_includes/partials/pagination.ejs') %>
+

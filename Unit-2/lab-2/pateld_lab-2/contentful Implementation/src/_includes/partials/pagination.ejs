@@ -1,0 +1,34 @@
+<nav aria-labelledby="my-pagination">
+  <h2 id="my-pagination">This is my Pagination</h2>
+  <ol class="pagination">
+    <div class="container d-flex flex-wrap">
+      <!-- Previous Page Link -->
+      <li class="page-item">
+        <% if (pagination.href.previous) { %>
+          <a class="page-link" href="<%= pagination.href.previous %>">Previous</a>
+          <% } else { %>
+            <a class="page-link disabled">Previous</a>
+            <% } %>
+          </li>
+          
+          <!-- Pages Loop -->
+          <% pagination.pages.forEach(function(pageEntry, index) { %>
+            <li>
+              <a class="page-link" href="<%= pagination.hrefs[index] %>"
+                <% if (page.url === pagination.hrefs[index]) { %> aria-current="page"<% } %>>
+                Page <%= index + 1 %>
+              </a>
+            </li>
+            <% }); %>
+            
+            <!-- Next Page Link -->
+            <li>
+              <% if (pagination.href.next) { %>
+                <a class="page-link" href="<%= pagination.href.next %>">Next</a>
+                <% } else { %>
+                  <a class="page-link disabled">Next</a>
+                  <% } %>
+                </li>
+              </div>
+              </ol>
+            </nav>
